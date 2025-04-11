@@ -1,100 +1,4 @@
 {% load static %}
-
-<style>
-    /* Definindo a fonte clean */
-    body {
-        font-family: 'Poppins', sans-serif;
-        padding-top: 70px; /* Compensar a altura da navbar fixa */
-    }
-    
-    /* Estilização da Navbar fixa */
-    .navbar {
-        background-color: rgba(106, 13, 173, 0.9) !important;  /* Roxo com 90% de opacidade */
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        position: fixed !important;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-    
-    /* Efeito quando scrollar */
-    .navbar.scrolled {
-        background-color: rgba(106, 13, 173, 0.8) !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
-    }
-    
-    .navbar-brand {
-        font-weight: 500;
-        letter-spacing: 0.5px;
-    }
-    
-    .navbar-brand i {
-        transition: transform 0.3s ease;
-    }
-    
-    .navbar-brand:hover i {
-        transform: scale(1.1);
-    }
-    
-    .nav-link {
-        color: #f8f9fa !important;
-        font-weight: 400;
-        letter-spacing: 0.3px;
-        transition: all 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-    }
-    
-    .nav-link:hover, .nav-link:focus {
-        color: #ffffff !important;
-        background-color: rgba(255, 255, 255, 0.1);
-        transform: translateY(-2px);
-    }
-    
-    .dropdown-menu {
-        background-color: #7b1fa2;
-        border: none;
-    }
-    
-    .dropdown-item {
-        color: #f8f9fa;
-    }
-    
-    .dropdown-item:hover {
-        background-color: #9c27b0;
-        color: white;
-    }
-    
-    /* Estilização do Header */
-    header {
-        background: linear-gradient(135deg, #9c27b0 0%, #6a0dad 100%);
-        color: white;
-        padding: 4rem 0 2rem; /* Ajuste no padding para a navbar fixa */
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    
-    header figure {
-        margin: 0 auto 1rem;
-    }
-    
-    header h1 {
-        font-weight: 300;
-        font-size: 2.5rem;
-        letter-spacing: 1px;
-        margin-bottom: 0.5rem;
-    }
-    
-    header p {
-        font-weight: 300;
-        font-size: 1.2rem;
-        letter-spacing: 0.5px;
-        opacity: 0.9;
-    }
-</style>
-
 <!-- Adicione isso no head do seu HTML para carregar a fonte Poppins -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -104,7 +8,7 @@
         const navbar = document.querySelector('.navbar');
         
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 10) {
+            if (window.scrollY > 150) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
@@ -112,14 +16,9 @@
         });
     });
 </script>
-
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <i class="bi bi-suitcase2"></i>
-            <i class="bi bi-airplane"></i>
-        </a>
-
+    
+    <div class="navbar_conteiner">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -132,41 +31,43 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="{% url 'home' %}#pacotes">Pacotes</a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="{% url 'home' %}#contato">Contato</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'destinos' %}">Destinos</a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Sobre Nós</a>
-                </li>
+                </li> -->
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static '/global/image/logotipo.svg' %}" alt="tipo" style="height: 40px">
+                </a> 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'fotos' %}">Fotos</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                <!-- <li class="nav-item dropdown"> -->
+                    <!-- <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Promoções
-                    </a>
-                    <ul class="dropdown-menu">
+                    </a> -->
+                    <!-- <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Ônibus</a></li>
                         <li><a class="dropdown-item" href="#">Aéreo</a></li>
                         <li><a class="dropdown-item" href="#">Cruzeiros</a></li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'cadastro' %}">Cadastre-se</a>
+                    <a class="nav-link" href="{% url 'cadastro' %}">Cadastro</a>
                 </li>
             </ul>
         </div>
-    </div>
+</div>
 </nav>
-
-<header>
+<header style="background-image: url('{% static '/global/image/fundoheader.jpg ' %} ')";>
     <figure>
         <img src="{% static '/global/image/logo.jfif' %}" alt="logotipo jornada viagem" width="100" height="80">
     </figure>

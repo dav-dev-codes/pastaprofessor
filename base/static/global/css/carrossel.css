@@ -1,17 +1,19 @@
 
   
   section {
-      background: #F4F4F4;
+      background: #000;
       padding: 50px 0;
   }
   
   .container {
+      background: #000;
       max-width: 1044px;
       margin: 0 auto;
       padding: 0 20px;
   }
   
   .carousel {
+      background-color: #0000;
       display: block;
       text-align: left;
       position: relative;
