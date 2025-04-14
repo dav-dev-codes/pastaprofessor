@@ -7,11 +7,32 @@
     document.addEventListener('DOMContentLoaded', function() {
         const navbar = document.querySelector('.navbar');
         
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 150) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        // Função para verificar se é mobile (considerando 768px como breakpoint comum)
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+        
+        // Aplica o efeito apenas se não for mobile
+        if (!isMobile()) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 1000) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+        
+        // Opcional: também verificar quando a janela for redimensionada
+        window.addEventListener('resize', function() {
+            if (!isMobile()) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 150) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                });
             }
         });
     });
@@ -43,8 +64,8 @@
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Sobre Nós</a>
                 </li> -->
-                <a class="navbar-brand" href="{% url 'home' %}">
-                    <img src="{% static '/global/image/logotipo.svg' %}" alt="tipo" style="height: 40px">
+                {% comment %} <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static '/global/image/logotipo.svg' %}" alt="tipo" style="height: 40px"> {% endcomment %}
                 </a> 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'fotos' %}">Fotos</a>
@@ -63,6 +84,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'cadastro' %}">Cadastro</a>
                 </li>
+                <li><form class:"logout" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                  </form>
+                  <li/>
+
             </ul>
         </div>
 </div>

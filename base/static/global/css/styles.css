@@ -8,6 +8,7 @@ body {
 }
 
 
+
 .navbar-nav {
     gap: 20px;
     justify-content: center;
@@ -49,14 +50,14 @@ body {
     align-items: center;
     border-radius: 8px;
     max-height: 100%;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 /* Efeito quando scrollar */
 .navbar.scrolled {
     background-color: rgba(116, 136, 177, 0.264) !important;
     backdrop-filter: blur(5px);
-    margin-top: 0;
+    margin-top: 40px;
     height: 50px;
 }
 
@@ -74,8 +75,9 @@ body {
 }
 
 .nav-link {
-    color: #f8f9fa !important;
+    color: #ffffff !important;
     font-weight: 400;
+    font-size: 23px;
     letter-spacing: 0.3px;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     padding: 0.5rem 1rem;
@@ -121,6 +123,24 @@ body {
     color: white;
     padding-left: 20px;
 }
+
+@media (max-width: 992px) {
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+.logout{
+    color: #158aff !important;
+    font-weight: 500px;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    position: relative;
+}
+
 /* estilização do header(cabeçalho) */
 header {
     height: 100vh;
